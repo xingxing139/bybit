@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="./CSS/Sign up.css">
+</head>
+<body>
+
+    <video id="backgroundVideo" autoplay loop muted>
+        <source src="./video/ETHkv-7b37e84d8aab42580eb7cccf422b2f75.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div class="left">
+            <div class="image-container">
+                <img src="./image/pc-banner-kv.avif" alt="动态图片">
+                <h1>立即注册，领取高达 6,045 USDT!</h1>
+                <p>赢取专属推荐奖励和高达 6,045 USDT 迎新礼。与 Bybit 一起开启加密货币之旅，加入全球2千万用户社区。</p>
+            </div>
+        </div>
+        <div class="right">
+            <form action="#" method="post">
+                <label for="email">邮箱（输入正确邮箱）</label>
+                <input type="email" id="email" name="email" placeholder="请输入邮箱账户" required>
+                
+                <label for="password">注册登录密码</label>
+                <input type="password" id="password" name="password" placeholder="请输入登录密码" required>
+                <span class="password-hint" id="password-hint">密码必须至少8个字符，并包含英文和数字。</span>
+                
+                <label for="invite-code">邀请码（必填）</label>
+                <input type="text" id="invite-code" name="invite-code" placeholder="EAVZOLD">
+                
+                <div class="checkbox">
+                    <input type="checkbox" id="agree" name="agree" required>
+                    <label for="agree">点击“创建账户”，即表示您同意服务与隐私条款。</label>
+                </div>
+                
+                <button type="submit">创建账户</button>
+                
+                <div class="alternate-login">
+                    <p>或通过以下方式注册</p>
+                    <button class="google">Google</button>
+                    <button class="apple">Apple</button>
+                </div>
+            </form>
+            <div class="login-link">
+                <p>已有账户？<a href="login.html">点击这里登录</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="./JavaScript/Sign up.js"></script>
+</body>
+</html>

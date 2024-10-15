@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="./CSS/Home login.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="./home.html"><img src="./image/下载.svg" alt="BYBIT Logo"></a>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">快速买币</a>
+                    <ul class="dropdown">
+                        <li><a href="#">子菜单1</a></li>
+                        <li><a href="#">子菜单2</a></li>
+                        <li><a href="#">子菜单3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">行情</a>
+                    <ul class="dropdown">
+                        <li><a href="#">子菜单1</a></li>
+                        <li><a href="#">子菜单2</a></li>
+                        <li><a href="#">子菜单3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">交易</a>
+                    <ul class="dropdown">
+                        <li><a href="#">子菜单1</a></li>
+                        <li><a href="#">子菜单2</a></li>
+                        <li><a href="#">子菜单3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">衍生品</a>
+                    <ul class="dropdown">
+                        <li><a href="#">子菜单1</a></li>
+                        <li><a href="#">子菜单2</a></li>
+                        <li><a href="#">子菜单3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">工具</a>
+                    <ul class="dropdown">
+                        <li><a href="#">子菜单1</a></li>
+                        <li><a href="#">子菜单2</a></li>
+                        <li><a href="#">子菜单3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">金融</a>
+                    <ul class="dropdown">
+                        <li><a href="#">子菜单1</a></li>
+                        <li><a href="#">子菜单2</a></li>
+                        <li><a href="#">子菜单3</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <span class="user-email" id="userEmail"></span>
+            <div class="user-avatar-dropdown">
+                <div class="user-avatar" onclick="toggleAvatarDropdown()">
+                    <img src="./ico/rocket.ico" alt="User Avatar">
+                </div>
+                <div class="avatar-dropdown-content" id="avatarDropdownContent">
+                    <img src="./ico/rocket.ico" alt="Avatar 1" onclick="selectAvatar(this)">
+                    <img src="./ico/rocket.ico" alt="Avatar 2" onclick="selectAvatar(this)">
+                    <img src="./ico/rocket.ico" alt="Avatar 3" onclick="selectAvatar(this)">
+                    <!-- 添加更多头像 -->
+                </div>
+            </div>
+        </div>
+            <div class="dropdown">
+                <button class="dropbtn">个人中心</button>
+                <div class="dropdown-content">
+                    <a href="#">我的账户</a>
+                    <a href="#">交易记录</a>
+                    <a href="#">设置</a>
+                    <a href="#">退出登录</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 横幅和新闻栏 -->
+    <div class="banner-news-container">
+        <div class="banner">
+            <img src="./image/Snipaste_2024-05-16_01-27-11.png" alt="">
+        </div>
+        <div class="news-container">
+            <h2>最新新闻</h2>
+            <div class="news-item">
+                <img src="./ico/finance_chart_web_seo_optimization_management_business_icon_263047.png" alt="新闻1">
+                <a href="#">Solana 新GameFi代币Mega Dice于加密预售中突破100万美元</a>
+            </div>
+            <div class="news-item">
+                <img src="./ico/finance_chart_web_seo_optimization_management_business_icon_263047.png" alt="新闻2">
+                <a href="#">自四月以来推出了超过100万个新代币 以太坊和Solana领跑</a>
+            </div>
+            <div class="news-item">
+                <img src="./ico/finance_chart_web_seo_optimization_management_business_icon_263047.png" alt="新闻3">
+                <a href="#">HashKey Global五月第一周比特币报告：57,000美元或是有力支撑点</a>
+            </div>
+            <div class="news-item">
+                <img src="./ico/finance_chart_web_seo_optimization_management_business_icon_263047.png" alt="新闻4">
+                <a href="#">比特币价格预测：两只神秘巨鲸在10年后开始转移资金—发生了什么？</a>
+            </div>
+            <div class="news-item">
+                <img src="./ico/finance_chart_web_seo_optimization_management_business_icon_263047.png" alt="新闻5">
+                <a href="#">富兰克林CEO：区块链技术将改写传统金融行业 验证成本将大幅下降</a>
+            </div>
+            <div class="news-item">
+                <img src="./ico/finance_chart_web_seo_optimization_management_business_icon_263047.png" alt="新闻5">
+                <a href="#">香港比特币现货ETF周一流出3270万美元 以太币流出660万美元</a>
+            </div>
+            <div class="news-item">
+                <img src="./ico/finance_chart_web_seo_optimization_management_business_icon_263047.png" alt="新闻1">
+                <a href="#">Solana 新GameFi代币Mega Dice于加密预售中突破100万美元</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="neiron2">
+        <h1>数字货币交易，我们是专业的</h1>
+        <p>最低的手续费，最快捷的交易，强劲的 API 以及更多</p>
+        <video src="./video/CB440B7DC62FD604.mp4" autoplay loop muted></video>
+    
+      </div>
+
+
+<!-- 币种行情列表 -->
+<div class="market-container">
+    <ul class="market-list">
+        <!-- 每个交易对的行情项 -->
+        <li class="market-item">
+            <div class="currency-pair">BTC/USD</div>
+            <div class="latest-price">50000</div>
+            <div class="price-change">+5%</div>
+            <div class="chart"><img src="./image/chart_placeholder.png" alt="走势图"></div>
+            <button class="trade-button">交易</button>
+        </li>
+        <!-- 在这里添加更多交易对的行情项 -->
+    </ul>
+</div>
+
+<div class="neiron4">
+    <h2>您数字货币之旅的得力助手</h2>
+    <br>
+    <p>从数字货币交易初体验到第一次购买 NFT，欧易将助您轻松赚币</p>
+    <video src="./video/D47D930F643E7A00.webm" autoplay loop muted></video>
+
+  </div>
+
+<!--尾部栏-->
+<div class="weibu">
+    <div class="neiron6">
+      <img src="./image/下载.svg">
+      <p>©2017 - 2024 BYBIT.COM</p>
+
+      <dl class="dl1">
+        <dt>关于欧易</dt>
+        <dd><a href="#">关于我们</a></dd>
+        <dd><a href="#">职业机会</a></dd>
+        <dd><a href="#">联系我们</a></dd>
+        <dd><a href="#">服务条款</a></dd>
+        <dd><a href="#">隐私保护</a></dd>
+        <dd><a href="#">免责声明</a></dd>
+        <dd><a href="#">廉正举报</a></dd>
+        <dd><a href="#">执法请求</a></dd>
+        <dd><a href="#">BYBIT App</a></dd>
+      </dl>
+
+      <dl class="dl1">
+        <dt>产品</dt>
+        <dd><a href="#">快捷买币</a></dd>
+        <dd><a href="#">C2C 交易</a></dd>
+        <dd><a href="#">闪兑</a></dd>
+        <dd><a href="#">赚币</a></dd>
+        <dd><a href="#">OKTC</a></dd>
+        <dd><a href="#">Web3 钱包</a></dd>
+        <dd><a href="#">Web3 市场</a></dd>
+        <dd><a href="#">数字货币计算器</a></dd>
+        <dd><a href="#">策略交易</a></dd>
+        <dd><a href="#">浏览所有数字货币</a></dd>
+        <dd><a href="#">数字学院</a></dd>
+        <dd><a href="#">TradingView</a></dd>
+      </dl>
+
+      <dl class="dl1">
+        <dt>服务</dt>
+        <dd><a href="#">节点计划</a></dd>
+        <dd><a href="#">V5 API</a></dd>
+        <dd><a href="#">历史行情数据</a></dd>
+        <dd><a href="#">费率标准</a></dd>
+        <dd><a href="#">上市申请</a></dd>
+        <dd><a href="#">C2C 认证商家申请</a></dd>
+      </dl>
+
+      <dl class="dl1">
+        <dt>买币</dt>
+        <dd><a href="#">购买 USDC</a></dd>
+        <dd><a href="#">购买泰达币 （USDT）</a></dd>
+        <dd><a href="#">购买比特币 （BTC）</a></dd>
+        <dd><a href="#">购买以太币 （ETH）</a></dd>
+        <dd><a href="#">购买 ADA</a></dd>
+        <dd><a href="#">购买 Solana</a></dd>
+        <dd><a href="#">购买 Solana</a></dd>
+        <dd><a href="#">购买 MATIC</a></dd>
+        <dd><a href="#">购买 Litecoin</a></dd>
+        <dd><a href="#">购买 XRP</a></dd>
+      </dl>
+
+      <dl class="dl1">
+        <dt>交易</dt>
+        <dd><a href="#">BTC USDC</a></dd>
+        <dd><a href="#">ETH USDC</a></dd>
+        <dd><a href="#">BTC USDT</a></dd>
+        <dd><a href="#">ETH USDT</a></dd>
+        <dd><a href="#">MATIC USDT</a></dd>
+        <dd><a href="#">LTC USDT</a></dd>
+        <dd><a href="#">SOL USDT</a></dd>
+        <dd><a href="#">XPR USDT</a></dd>
+        <dd><a href="#">比特币（BTC）价格</a></dd>
+        <dd><a href="#">以太坊（ETH）价格</a></dd>
+        <dd><a href="#">Cardano 价格</a></dd>
+        <dd><a href="#">Solana 价格</a></dd>
+        <dd><a href="#">XPR 价格</a></dd>
+      </dl>
+    </div>
+</div>
+
+    <script src="./JavaScript/Home login.js"></script>
+</body>
+
+</html>

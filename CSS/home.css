@@ -1,0 +1,446 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #222;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.logo a img {
+    height: 20px; /* 根据需要调整logo的高度 */
+    margin-right: 20px; /* 调整 logo 和导航菜单之间的间距 */
+}
+
+nav {
+    position: relative;
+    flex: 1; /* 使导航菜单占据剩余空间 */
+}
+
+nav ul.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start; /* 调整导航菜单靠左 */
+}
+
+nav ul.menu > li {
+    position: relative;
+}
+
+nav ul.menu > li > a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+nav ul.menu > li:hover .dropdown {
+    display: block;
+}
+
+nav ul.dropdown {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    border-radius: 10px;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    display: none;
+    animation: jelly 0.3s ease;
+    z-index: 1000;
+}
+
+nav ul.dropdown li {
+    width: 100%;
+}
+
+nav ul.dropdown li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    white-space: nowrap;
+}
+
+nav ul.dropdown li a:hover {
+    background-color: #444;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right input[type="text"] {
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.header-right a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.header-right .register-btn {
+    background-color: #ffda77;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #000;
+    transition: background-color 0.3s;
+}
+
+.header-right .register-btn:hover {
+    background-color: #ffce54;
+}
+
+.header-right img {
+    width: 20px;
+    height: 20px;
+}
+
+
+
+.banner-news-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    height: 600px;
+}
+
+.banner {
+    flex: 2;
+    margin-right: 20px; /* 调整间隙 */
+    border-radius: 15px; /* 设置圆角 */
+    overflow: hidden;
+    background-color: #fff; /* 背景颜色 */
+    background-size: 100%;
+    position: relative;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 2s ease-in-out; /* 动态效果 */
+}
+
+.banner img:hover {
+    transform: scale(1.1); /* 放大效果 */
+}
+
+.news-container {
+    flex: 1;
+    background-color: #000000;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.news-container h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.news-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #fff; /* 背景颜色 */
+    padding: 10px;
+    border-radius: 10px; /* 设置圆角 */
+    overflow: hidden; /* 防止内容外溢 */
+}
+
+.news-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.news-item a {
+    text-decoration: none;
+    color: #333;
+    flex: 1;
+}
+
+.news-item a:hover {
+    text-decoration: underline;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+}
+
+.crypto-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.crypto-symbol {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.crypto-price {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.crypto-change {
+    color: green;
+}
+
+.crypto-change.negative {
+    color: red;
+}
+
+.scroll-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.market-container {
+    width: 1224px;
+    margin: 30px auto; /* 居中显示 */
+    background-color: rgba(0, 0, 0, 0.8); /* 添加毛玻璃效果 */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    backdrop-filter: blur(10px); /* 添加背景模糊效果 */
+    color: #ffffff;
+}
+
+.market-list {
+    list-style: none;
+    padding: 0;
+    border-radius: 15px; /* 圆角边框 */
+}
+
+.market-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s; /* 添加动态效果 */
+}
+
+.market-item:hover {
+    background-color: #f0f0f0; /* 鼠标悬停时改变背景色 */
+}
+
+.currency-pair {
+    flex: 1;
+}
+
+.latest-price {
+    flex: 1;
+}
+
+.price-change {
+    flex: 1;
+}
+
+.chart {
+    flex: 1;
+}
+
+.trade-button {
+    background-color: #ffce54;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.trade-button:hover {
+    background-color: #ffce54;
+}
+
+.neiron2{
+    text-align: center;
+    margin-bottom: 190px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1248px;
+    height: 800px;
+    background-color: #000000;
+    border-radius: 20px;
+  }
+  
+  .neiron2 h1{
+    padding-top: 20px;
+    font-size: 46px;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .neiron2 p{
+    font-size: 22px;
+    color: #6e6e6e;
+    text-align: center;
+  }
+
+  .neiron2 video{
+    margin-top: 100px;
+    margin-left: 10px;
+    width: 1224px;
+    height: 688px;
+  }
+
+  .weibu{
+    width: auto;
+    height: 600px;
+    background-color: #000000;
+  }
+  
+  .neiron6{
+    margin:50px auto;
+    width: 1248px;
+    height: 600px;
+    background-color: #000000;
+  }
+  
+  .neiron6 img{
+    width: 86px;
+    height: 36px;
+  }
+  
+  .neiron6 p{
+    font-size: 14px;
+    color: #5c5c5c;
+  }
+  
+  .dl1{
+    margin-right: 88px;
+    float: left;
+  }
+  
+  .dl1 dt{
+    margin-top: 100px;
+    margin-bottom: 16px;
+    font-size: 20px;
+    color: #fff;
+  }
+  
+  .dl1 dd{
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  
+  .dl1 dd a{
+    color: #6e6e6e;
+  }
+  
+  .dl1 dd a:hover{
+    color: #fff;
+  }
+
+  .neiron4{
+    margin: 80px auto;
+    width: 1248px;
+    height: 500px;
+    background-color: #000000;
+  }
+  
+  .neiron4 h2{
+    text-align: center;
+    font-size: 46px;
+    color: #fff;
+  }
+  
+  .neiron4 p{
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+  }
+  
+  .neiron4 video{
+    width: 1224px;
+    height: 330px;
+  }
+
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.modal-content {
+    background-color: #e8fcff9c;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 20px;
+    border: none;
+}
+.close {
+    color: #ffffff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: rgb(241, 255, 255);
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iOS-like Desktop</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: sans-serif;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 顶部状态栏 */
+        .status-bar {
+            width: 100%;
+            height: 30px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        .status-bar .time {
+            font-size: 14px;
+        }
+
+        .status-bar .status-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .status-bar .status-icons img {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* 灵动岛 */
+        .dynamic-island {
+            width: 100px;
+            height: 30px;
+            background-color: black;
+            border-radius: 15px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        /* 桌面区域 */
+        .desktop {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .app-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .app-icon {
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .app-icon img {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+        }
+
+        .app-icon p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            color: #fff;
+        }
+
+        #addApp {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        /* 底部导航条 */
+        .nav-bar {
+            width: 100%;
+            height: 50px;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-bar .nav-dot {
+            width: 5px;
+            height: 5px;
+            background-color: #fff;
+            border-radius: 50%;
+            margin: 0 3px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 状态栏 -->
+    <div class="status-bar">
+        <div class="time" id="time"></div>
+        <div class="status-icons">
+            <img src="signal.png" alt="Signal">
+            <img src="wifi.png" alt="Wi-Fi">
+            <img src="battery.png" alt="Battery">
+        </div>
+    </div>
+
+    <!-- 灵动岛 -->
+    <div class="dynamic-island">灵动岛</div>
+
+    <!-- 桌面 -->
+    <div class="desktop">
+        <div class="app-container" id="appContainer">
+            <div class="app-icon" draggable="true">
+                <img src="icon1.png" alt="App 1">
+                <p>App 1</p>
+            </div>
+            <!-- 可以添加更多应用 -->
+        </div>
+        <button id="addApp">添加应用</button>
+    </div>
+
+    <!-- 底部导航条 -->
+    <div class="nav-bar">
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+        <div class="nav-dot"></div>
+    </div>
+
+    <script>
+        // 显示当前时间
+        function updateTime() {
+            const timeElement = document.getElementById('time');
+            const now = new Date();
+            timeElement.textContent = now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        // 添加应用功能
+        document.getElementById('addApp').addEventListener('click', () => {
+            const appContainer = document.getElementById('appContainer');
+            const newApp = document.createElement('div');
+            newApp.classList.add('app-icon');
+            newApp.draggable = true;
+            newApp.innerHTML = `
+                <img src="newicon.png" alt="New App">
+                <p>New App</p>
+            `;
+            appContainer.appendChild(newApp);
+            makeAppDraggable(newApp);
+        });
+
+        // 拖动排序功能
+        function makeAppDraggable(icon) {
+            let draggedItem = null;
+
+            icon.addEventListener('dragstart', function() {
+                draggedItem = this;
+                setTimeout(() => this.style.display = 'none', 0);
+            });
+
+            icon.addEventListener('dragend', function() {
+                setTimeout(() => {
+                    draggedItem.style.display = 'block';
+                    draggedItem = null;
+                }, 0);
+            });
+
+            icon.addEventListener('dragover', function(e) {
+                e.preventDefault();
+            });
+
+            icon.addEventListener('drop', function() {
+                if (draggedItem !== this) {
+                    this.parentNode.insertBefore(draggedItem, this);
+                }
+            });
+        }
+
+        // 初始化所有应用图标的拖动功能
+        document.querySelectorAll('.app-icon').forEach(makeAppDraggable);
+
+        // 动态切换桌面背景
+        document.body.addEventListener('dblclick', () => {
+            const backgrounds = ['background1.jpg', 'background2.jpg', 'background3.jpg'];
+            const currentBackground = document.body.style.backgroundImage;
+            let currentIndex = backgrounds.findIndex(bg => currentBackground.includes(bg));
+            let nextIndex = (currentIndex + 1) % backgrounds.length;
+            document.body.style.backgroundImage = `url('${backgrounds[nextIndex]}')`;
+        });
+    </script>
+</body>
+</html>

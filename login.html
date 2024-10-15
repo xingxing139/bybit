@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log in</title>
+    <link rel="stylesheet" href="./CSS/login.css">
+</head>
+<body>
+
+    <video id="backgroundVideo" autoplay loop muted>
+        <source src="./video/ETHkv-7b37e84d8aab42580eb7cccf422b2f75.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div class="left">
+            <div class="image-container">
+                <img src="./image/pc-banner-kv.avif" alt="动态图片">
+                <h1>欢迎回来！</h1>
+                <p>登录继续您的加密货币之旅，与全球2千万用户社区一起交易。</p>
+            </div>
+        </div>
+        <div class="right">
+            <form action="#" method="post">
+                <label for="email">邮箱</label>
+                <input type="email" id="email" name="email" placeholder="电子邮箱" required>
+                
+                <label for="password">登录密码</label>
+                <input type="password" id="password" name="password" placeholder="登录密码" required>
+                <span class="password-hint" id="password-hint">密码必须至少8个字符，并包含英文和数字。</span>
+                
+                <button type="submit">登录</button>
+                
+                <div class="alternate-login">
+                    <p>或通过以下方式登录</p>
+                    <button type="button" class="google">Google</button>
+                    <button type="button" class="apple">Apple</button>
+                </div>
+            </form>
+            <div class="register-link">
+                <p>还没有账户？<a href="./signup.html">点击这里注册</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="./JavaScript/login.js"></script>
+</body>
+</html>
